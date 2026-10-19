@@ -24,8 +24,8 @@ export const biens: Bien[] = [
     pieces: "2 pièces, 1 chambre, 1 salle de bain",
     precisions: "Premier étage, garage, ascenseur, piscine, carrelage. Immeuble de 10 à 20 ans.",
     prix: "1 250 000 DH",
-    photo: "/biens/bella-soleil.jpg",
-    photoAlt: "Coucher de soleil sur Bella Vista, depuis l’appartement",
+    photo: "/biens/bella.jpg",
+    photoAlt: "La piscine de la résidence à Bella Vista",
     cadrage: "object-center",
   },
   {
@@ -37,9 +37,9 @@ export const biens: Bien[] = [
     precisions:
       "Sixième étage, 4 personnes, 1 nuit minimum. Garage, ascenseur, piscine, concierge, salon européen, cuisine équipée.",
     prix: "1 500 DH par jour",
-    photo: "/biens/city-center.jpg",
-    photoAlt: "Vue sur la mer et la piscine depuis l’appartement du Tanger City Center",
-    cadrage: "object-[center_45%]",
+    photo: "/biens/city.jpg",
+    photoAlt: "La mer et la piscine, depuis l’appartement du Tanger City Center",
+    cadrage: "object-center",
   },
   {
     id: "nouinouich",
@@ -50,7 +50,7 @@ export const biens: Bien[] = [
     precisions: "Vue panoramique sur Tanger.",
     // L’annonce affiche 5 000 000 000 DH. Ce n’est pas un prix clair.
     prix: "Prix sur demande",
-    photo: "/biens/nouinouich-mer.jpg",
+    photo: "/biens/villa.jpg",
     photoAlt: "Le détroit au coucher du soleil, depuis la villa à Nouinouich",
     cadrage: "object-center",
   },

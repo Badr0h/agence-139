@@ -2,15 +2,23 @@
 
 @theme {
   --color-papier: #ffffff;
-  --color-encre: #141414;
-  --color-pierre: #5c5854;
-  --color-ligne: #e6e3de;
+  --color-encre: #1a1c1b;
+  --color-pierre: #5c6564;
+  --color-ligne: #d7e0e2;
+  --color-mer: #15738a;
   --font-sans: var(--font-karla), sans-serif;
   --font-display: var(--font-newsreader), serif;
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-bottom: 5.5rem;
+}
+
+@media (min-width: 768px) {
+  html {
+    scroll-padding-bottom: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

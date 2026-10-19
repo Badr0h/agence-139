@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: "Agence 139, agence immobilière à Tanger",
     description:
       "Achat, vente et location à Tanger. Rue Amr Ibn Ass, n° 68. Écrivez sur WhatsApp pour visiter un bien.",
-    images: ["/biens/chambre-mer.jpg"],
+    images: ["/biens/hero.jpg"],
     locale: "fr_FR",
   },
 };

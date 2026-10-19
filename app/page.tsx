@@ -18,32 +18,32 @@ function messageVisite(bien: Bien) {
 function Lieu({ bien, miroir }: { bien: Bien; miroir?: boolean }) {
   return (
     <article
-      className={`relative lg:grid lg:min-h-[92vh] lg:grid-cols-2 ${miroir ? "lg:[&>figure]:order-2" : ""}`}
+      className={`lg:grid lg:min-h-[88vh] lg:grid-cols-2 ${miroir ? "lg:[&>figure]:order-2" : ""}`}
     >
-      <figure className="relative h-[calc(100svh-4.75rem)] lg:h-full lg:min-h-[92vh]">
+      <figure className="relative h-[36svh] min-h-52 lg:h-full lg:min-h-[88vh]">
         <Image
           src={bien.photo}
           alt={bien.photoAlt}
           fill
+          quality={90}
           sizes="(min-width: 1024px) 50vw, 100vw"
           className={`object-cover ${bien.cadrage}`}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-encre from-0% via-encre/80 via-42% to-transparent to-72% lg:hidden" />
       </figure>
-      <div className="absolute inset-x-0 bottom-0 z-10 px-5 pb-5 text-papier lg:static lg:flex lg:flex-col lg:justify-center lg:bg-papier lg:px-14 lg:py-16 lg:text-encre">
-        <h2 className="max-w-[16ch] font-display text-4xl leading-[1.05] font-medium lg:text-5xl">
+      <div className="flex flex-col justify-center px-5 pt-5 pb-4 lg:px-14 lg:py-16">
+        <h2 className="max-w-[18ch] font-display text-4xl leading-[1.05] font-medium lg:max-w-[16ch] lg:text-5xl">
           {bien.titre}
         </h2>
-        <p className="mt-2 text-lg text-papier/85 lg:mt-3 lg:text-pierre">{bien.quartier}</p>
-        <p className="mt-3 max-w-[36ch] text-lg leading-snug lg:mt-4 lg:leading-relaxed">
-          {bien.surface}. {bien.pieces}. {bien.precisions}
-        </p>
-        <p className="mt-4 font-display text-4xl leading-none font-medium lg:mt-6 lg:text-5xl">
+        <p className="mt-2 text-lg text-pierre">{bien.quartier}</p>
+        <p className="mt-4 font-display text-4xl leading-none font-medium text-mer lg:text-5xl">
           {bien.prix}
+        </p>
+        <p className="mt-3 max-w-[36ch] text-base leading-snug lg:mt-4 lg:text-lg lg:leading-relaxed">
+          {bien.surface}. {bien.pieces}. {bien.precisions}
         </p>
         <a
           href={messageVisite(bien)}
-          className="mt-5 inline-flex h-14 w-full items-center justify-center bg-papier text-lg font-medium text-encre lg:mt-6 lg:w-fit lg:bg-encre lg:px-8 lg:text-papier"
+          className="mt-6 inline-flex h-14 w-full items-center justify-center bg-mer text-lg font-medium text-papier lg:w-fit lg:px-8"
         >
           Demander une visite
         </a>
@@ -60,14 +60,15 @@ export default function Page() {
       <main>
         <section className="relative min-h-[100svh] text-papier">
           <Image
-            src="/biens/chambre-mer.jpg"
-            alt="Chambre de l’appartement du Tanger City Center, vue sur la mer"
+            src="/biens/hero.jpg"
+            alt="Coucher de soleil sur la piscine de la villa à Nouinouich"
             fill
             priority
+            quality={90}
             sizes="100vw"
-            className="object-cover object-[center_38%]"
+            className="object-cover object-[center_42%]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-encre/80 via-encre/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-encre/80 via-transparent via-[46%] to-transparent" />
           <div className="relative z-10 flex min-h-[100svh] flex-col justify-end px-5 pt-16 pb-28 md:px-14 md:pb-16">
             <p className="text-lg">Rue Amr Ibn Ass, Tanger</p>
             <h1 className="mt-3 max-w-[12ch] font-display text-5xl leading-[0.95] font-medium sm:text-7xl">
@@ -153,7 +154,7 @@ export default function Page() {
           </a>
           <a
             href={visiteGenerale}
-            className="flex h-12 items-center justify-center bg-encre text-base font-medium text-papier"
+            className="flex h-12 items-center justify-center bg-mer text-base font-medium text-papier"
           >
             Demander une visite
           </a>
