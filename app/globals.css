@@ -12,13 +12,6 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-bottom: 5.5rem;
-}
-
-@media (min-width: 768px) {
-  html {
-    scroll-padding-bottom: 0;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

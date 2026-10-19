@@ -15,35 +15,33 @@ function messageVisite(bien: Bien) {
   );
 }
 
-function Lieu({ bien, miroir }: { bien: Bien; miroir?: boolean }) {
+function Carte({ bien }: { bien: Bien }) {
   return (
-    <article
-      className={`lg:grid lg:min-h-[88vh] lg:grid-cols-2 ${miroir ? "lg:[&>figure]:order-2" : ""}`}
-    >
-      <figure className="relative h-[36svh] min-h-52 lg:h-full lg:min-h-[88vh]">
+    <article className="border border-ligne">
+      <figure className="relative aspect-[4/3]">
         <Image
           src={bien.photo}
           alt={bien.photoAlt}
           fill
           quality={90}
-          sizes="(min-width: 1024px) 50vw, 100vw"
+          sizes="(min-width: 768px) 33vw, 100vw"
           className={`object-cover ${bien.cadrage}`}
         />
       </figure>
-      <div className="flex flex-col justify-center px-5 pt-5 pb-4 lg:px-14 lg:py-16">
-        <h2 className="max-w-[18ch] font-display text-4xl leading-[1.05] font-medium lg:max-w-[16ch] lg:text-5xl">
+      <div className="px-4 py-4">
+        <p className="text-base text-pierre">{bien.quartier}</p>
+        <h2 className="mt-1 font-display text-2xl leading-tight font-medium">
           {bien.titre}
         </h2>
-        <p className="mt-2 text-lg text-pierre">{bien.quartier}</p>
-        <p className="mt-4 font-display text-4xl leading-none font-medium text-mer lg:text-5xl">
+        <p className="mt-3 font-display text-3xl leading-none font-medium text-mer">
           {bien.prix}
         </p>
-        <p className="mt-3 max-w-[36ch] text-base leading-snug lg:mt-4 lg:text-lg lg:leading-relaxed">
+        <p className="mt-3 text-base leading-snug">
           {bien.surface}. {bien.pieces}. {bien.precisions}
         </p>
         <a
           href={messageVisite(bien)}
-          className="mt-6 inline-flex h-14 w-full items-center justify-center bg-mer text-lg font-medium text-papier lg:w-fit lg:px-8"
+          className="mt-4 inline-flex h-12 w-full items-center justify-center bg-mer text-base font-medium text-papier"
         >
           Demander une visite
         </a>
@@ -53,12 +51,25 @@ function Lieu({ bien, miroir }: { bien: Bien; miroir?: boolean }) {
 }
 
 export default function Page() {
-  const [bella, city, villa] = biens;
-
   return (
     <>
+      <header className="sticky top-0 z-40 border-b border-ligne bg-papier">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-4 gap-y-2 px-4 py-3">
+          <p className="font-display text-2xl leading-none font-medium">Agence 139</p>
+          <a href="tel:+212710090021" className="text-base font-medium whitespace-nowrap">
+            +212 710 09 00 21
+          </a>
+          <a
+            href={visiteGenerale}
+            className="inline-flex h-11 items-center justify-center bg-mer px-4 text-base font-medium whitespace-nowrap text-papier sm:ml-auto"
+          >
+            Demander une visite
+          </a>
+        </div>
+      </header>
+
       <main>
-        <section className="relative min-h-[100svh] text-papier">
+        <section className="relative h-[26rem] md:h-[32rem]">
           <Image
             src="/biens/hero.jpg"
             alt="Coucher de soleil sur la piscine de la villa à Nouinouich"
@@ -68,30 +79,27 @@ export default function Page() {
             sizes="100vw"
             className="object-cover object-[center_42%]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-encre/80 via-transparent via-[46%] to-transparent" />
-          <div className="relative z-10 flex min-h-[100svh] flex-col justify-end px-5 pt-16 pb-28 md:px-14 md:pb-16">
-            <p className="text-lg">Rue Amr Ibn Ass, Tanger</p>
-            <h1 className="mt-3 max-w-[12ch] font-display text-5xl leading-[0.95] font-medium sm:text-7xl">
+          <div className="absolute inset-x-0 bottom-0 bg-papier px-5 py-4 md:inset-x-auto md:bottom-8 md:left-8 md:max-w-md md:px-6 md:py-5">
+            <h1 className="font-display text-4xl leading-none font-medium">
               Agence 139
             </h1>
-            <p className="mt-4 max-w-[18ch] text-2xl leading-snug sm:text-3xl">
+            <p className="mt-2 max-w-[22ch] text-xl leading-snug">
               Achat, vente et location à Tanger.
-            </p>
-            <p className="mt-3 max-w-[28ch] text-lg leading-relaxed text-papier/90">
-              Bella Vista, Tanger City Center, Nouinouich.
             </p>
             <a
               href={visiteGenerale}
-              className="mt-8 hidden h-14 w-fit items-center justify-center bg-papier px-8 text-lg font-medium text-encre md:inline-flex"
+              className="mt-4 inline-flex h-12 items-center justify-center bg-mer px-5 text-base font-medium text-papier"
             >
               Demander une visite
             </a>
           </div>
         </section>
 
-        {bella ? <Lieu bien={bella} /> : null}
-        {city ? <Lieu bien={city} miroir /> : null}
-        {villa ? <Lieu bien={villa} /> : null}
+        <section className="mx-auto grid max-w-6xl gap-6 px-4 py-8 md:grid-cols-3 md:py-12">
+          {biens.map((bien) => (
+            <Carte key={bien.id} bien={bien} />
+          ))}
+        </section>
 
         <section className="border-t border-ligne" id="agence">
           <div className="mx-auto grid max-w-6xl gap-12 px-5 py-14 sm:px-8 lg:grid-cols-2 lg:py-20">
@@ -130,7 +138,7 @@ export default function Page() {
         </section>
       </main>
 
-      <footer className="border-t border-ligne pb-28 md:pb-0">
+      <footer className="border-t border-ligne">
         <div className="mx-auto grid max-w-6xl gap-1 px-5 py-8 text-base text-pierre sm:px-8">
           <p className="font-display text-2xl font-medium text-encre">Agence 139</p>
           <p>Rue Amr Ibn Ass, n° 68, RDC MA1, Tanger</p>
@@ -143,23 +151,6 @@ export default function Page() {
           <p>RC 130883 Tanger</p>
         </div>
       </footer>
-
-      <div className="fixed inset-x-0 bottom-0 z-30 border-t border-ligne bg-papier px-4 py-3 md:hidden">
-        <div className="grid grid-cols-[5.5rem_minmax(0,1fr)] gap-3">
-          <a
-            href="tel:+212710090021"
-            className="flex h-12 items-center justify-center text-base font-medium"
-          >
-            Appeler
-          </a>
-          <a
-            href={visiteGenerale}
-            className="flex h-12 items-center justify-center bg-mer text-base font-medium text-papier"
-          >
-            Demander une visite
-          </a>
-        </div>
-      </div>
     </>
   );
 }
