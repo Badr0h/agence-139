@@ -73,7 +73,7 @@ export function VisitForm() {
       )}
       <button
         type="submit"
-        className="h-14 bg-mer text-lg font-medium text-papier"
+        className="h-14 bg-toit text-lg font-medium text-papier"
       >
         Demander une visite
       </button>
