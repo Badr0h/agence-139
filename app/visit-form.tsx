@@ -4,7 +4,7 @@ import { FormEvent, useState } from "react";
 import { biens, whatsappLink } from "@/lib/biens";
 
 const champ =
-  "h-14 w-full border border-ligne bg-papier px-4 text-lg text-encre focus:border-detroit";
+  "h-14 w-full border border-ligne bg-papier px-4 text-lg text-encre focus:border-encre";
 
 export function VisitForm() {
   const [error, setError] = useState("");
@@ -67,13 +67,13 @@ export function VisitForm() {
           {error}
         </p>
       ) : (
-        <p className="text-base leading-relaxed">
+        <p className="max-w-[36ch] text-base leading-relaxed text-pierre">
           Rien n’est enregistré ici. Le message s’ouvre dans WhatsApp.
         </p>
       )}
       <button
         type="submit"
-        className="h-14 bg-detroit text-lg font-semibold text-papier"
+        className="h-14 bg-encre text-lg font-medium text-papier"
       >
         Demander une visite
       </button>

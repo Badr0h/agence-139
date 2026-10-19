@@ -8,8 +8,7 @@ export type Bien = {
   prix: string;
   photo: string;
   photoAlt: string;
-  largeur: number;
-  hauteur: number;
+  cadrage: string;
 };
 
 // Annonces ouvertes le 19 octobre 2026 sur
@@ -23,12 +22,11 @@ export const biens: Bien[] = [
     quartier: "Bella Vista, Malabata, Tanger",
     surface: "54 m²",
     pieces: "2 pièces, 1 chambre, 1 salle de bain",
-    precisions: "1er étage, garage, ascenseur, piscine, carrelage. Immeuble de 10 à 20 ans.",
+    precisions: "Premier étage, garage, ascenseur, piscine, carrelage. Immeuble de 10 à 20 ans.",
     prix: "1 250 000 DH",
-    photo: "/biens/bella-vista.jpg",
-    photoAlt: "Piscine de la résidence, depuis l’appartement à Bella Vista, Tanger",
-    largeur: 1100,
-    hauteur: 1466,
+    photo: "/biens/bella-soleil.jpg",
+    photoAlt: "Coucher de soleil sur Bella Vista, depuis l’appartement",
+    cadrage: "object-center",
   },
   {
     id: "city-center",
@@ -37,12 +35,11 @@ export const biens: Bien[] = [
     surface: "55 m²",
     pieces: "2 pièces, 1 chambre, 1 salle de bain",
     precisions:
-      "6e étage, 4 personnes, 1 nuit minimum. Garage, ascenseur, piscine, concierge, salon européen, cuisine équipée.",
+      "Sixième étage, 4 personnes, 1 nuit minimum. Garage, ascenseur, piscine, concierge, salon européen, cuisine équipée.",
     prix: "1 500 DH par jour",
     photo: "/biens/city-center.jpg",
     photoAlt: "Vue sur la mer et la piscine depuis l’appartement du Tanger City Center",
-    largeur: 1100,
-    hauteur: 825,
+    cadrage: "object-[center_45%]",
   },
   {
     id: "nouinouich",
@@ -53,10 +50,9 @@ export const biens: Bien[] = [
     precisions: "Vue panoramique sur Tanger.",
     // L’annonce affiche 5 000 000 000 DH. Ce n’est pas un prix clair.
     prix: "Prix sur demande",
-    photo: "/biens/nouinouich.jpg",
-    photoAlt: "Villa à Nouinouich, piscine et vue sur Tanger",
-    largeur: 1100,
-    hauteur: 1466,
+    photo: "/biens/nouinouich-mer.jpg",
+    photoAlt: "Le détroit au coucher du soleil, depuis la villa à Nouinouich",
+    cadrage: "object-center",
   },
 ];
 
