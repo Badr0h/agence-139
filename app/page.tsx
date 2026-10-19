@@ -54,14 +54,27 @@ export default function Page() {
   return (
     <>
       <header className="sticky top-0 z-40 border-b border-ligne bg-papier">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-4 gap-y-2 px-4 py-3">
-          <p className="font-display text-2xl leading-none font-medium">Agence 139</p>
-          <a href="tel:+212710090021" className="text-base font-medium whitespace-nowrap">
+        <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-2">
+          <div className="min-w-0">
+            <h1 className="font-display text-xl leading-none font-medium sm:text-2xl">
+              Agence 139
+            </h1>
+            <a
+              href="tel:+212710090021"
+              className="mt-1 block text-sm font-medium whitespace-nowrap sm:hidden"
+            >
+              +212 710 09 00 21
+            </a>
+          </div>
+          <a
+            href="tel:+212710090021"
+            className="hidden text-base font-medium whitespace-nowrap sm:block"
+          >
             +212 710 09 00 21
           </a>
           <a
             href={visiteGenerale}
-            className="inline-flex h-11 items-center justify-center bg-mer px-4 text-base font-medium whitespace-nowrap text-papier sm:ml-auto"
+            className="ml-auto inline-flex h-10 shrink-0 items-center justify-center bg-mer px-3 text-sm font-medium whitespace-nowrap text-papier sm:h-11 sm:px-4 sm:text-base"
           >
             Demander une visite
           </a>
@@ -69,7 +82,7 @@ export default function Page() {
       </header>
 
       <main>
-        <section className="relative h-[26rem] md:h-[32rem]">
+        <section className="relative h-44 md:h-[32rem]">
           <Image
             src="/biens/hero.jpg"
             alt="Coucher de soleil sur la piscine de la villa à Nouinouich"
@@ -77,12 +90,13 @@ export default function Page() {
             priority
             quality={90}
             sizes="100vw"
-            className="object-cover object-[center_42%]"
+            className="object-cover object-[center_38%]"
           />
-          <div className="absolute inset-x-0 bottom-0 bg-papier px-5 py-4 md:inset-x-auto md:bottom-8 md:left-8 md:max-w-md md:px-6 md:py-5">
-            <h1 className="font-display text-4xl leading-none font-medium">
-              Agence 139
-            </h1>
+          <p className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-encre/80 to-transparent px-4 pt-10 pb-3 text-lg leading-snug text-papier md:hidden">
+            Achat, vente et location à Tanger.
+          </p>
+          <div className="absolute bottom-8 left-8 hidden max-w-md bg-papier px-6 py-5 md:block">
+            <p className="font-display text-4xl leading-none font-medium">Agence 139</p>
             <p className="mt-2 max-w-[22ch] text-xl leading-snug">
               Achat, vente et location à Tanger.
             </p>
@@ -95,7 +109,7 @@ export default function Page() {
           </div>
         </section>
 
-        <section className="mx-auto grid max-w-6xl gap-6 px-4 py-8 md:grid-cols-3 md:py-12">
+        <section className="mx-auto grid max-w-6xl gap-6 px-4 pt-3 pb-8 md:grid-cols-3 md:py-12">
           {biens.map((bien) => (
             <Carte key={bien.id} bien={bien} />
           ))}
